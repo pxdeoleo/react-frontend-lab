@@ -7,14 +7,18 @@ function formatDescription(description: string): string {
 
 interface ProjectCardProps {
   project: Project;
+  onEdit: (project: Project) => void;
 }
 
-function handleEditClick(projectBeingEdited: Project) {
-  console.log(projectBeingEdited);
-}
+// function handleEditClick(projectBeingEdited: Project) {
+//   console.log(projectBeingEdited);
+// }
 
 function ProjectCard(props: ProjectCardProps) {
-  const { project } = props;
+  const { project, onEdit } = props;
+  const handleEditClick = (projectBeingEdited: Project) => {
+    onEdit(projectBeingEdited);
+  }
   return (
     <div key={project.id} className="cols-sm">
       <div className="card">
